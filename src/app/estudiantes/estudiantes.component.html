@@ -1,0 +1,34 @@
+<div class="container">
+
+<h1> {{titulo}} </h1> <!-- Interpolacion para mostrar la variable titulo de estudiantes.component.ts --> 
+<h2>{{prueba}} </h2> <!-- Interpolacion para mostrar la variable titulo de estudiantes.component.ts --> 
+
+<button type="button" class="btn btn-danger" [routerLink]="['/estudiantes/form']"> Nuevo Estudiante </button>
+
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombres</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Email</th>
+        <th scope="col">Nota</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let estudiante of estudiantes"> <!-- *ngFor Hacer recorrido en la vista de nuestro componente de la lista de la DB  --> 
+        <th scope="row">{{estudiante.id}}</th> <!-- Interpolacion de los campos de la DB --> 
+        <td>{{estudiante.nombres}}</td>
+        <td>{{estudiante.apellidos}}</td>
+        <td>{{estudiante.email}}</td>
+        <td>{{estudiante.nota}}</td>
+        <!-- Se agrega un boton para llevarnos al formulario para editar el estudiante -->
+        <td><button type="button" name="button" class="btn btn-primary" [routerLink]="['/estudiantes/form', estudiante.id]"> Editar </button> </td> 
+        
+        <!-- Se agrega un boton para eliminar y responde a un evento click del metodo delete del estudiantes.component.ts-->
+        <td><button class="btn btn-danger" (click)="delete(estudiante)"> Eliminar </button> </td> 
+      </tr>
+    </tbody>
+  </table>

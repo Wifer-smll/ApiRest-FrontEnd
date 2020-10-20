@@ -1,0 +1,45 @@
+<div class="container">
+
+    <div class="card-body">
+        <h5 class="card-title">{{titulo}}</h5>
+        <form>
+            <div class="from-group row">
+                <label for="nombres" class="col-sm-2 col-form-label">Nombres</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="nombres" [(ngModel)]="estudiante.nombres"> <!-- ngModel para mapear atributos de estudiante -->
+                </div>
+            </div>
+
+
+            <div class="from-group row">
+                <label for="apelldos" class="col-sm-2 col-form-label">Apellidos</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="apellidos" [(ngModel)]="estudiante.apellidos"> <!-- ngModel para mapear atributos de estudiante -->
+                </div>
+            </div>
+
+
+            <div class="from-group row">
+                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="email" [(ngModel)]="estudiante.email"> <!-- ngModel para mapear atributos de estudiante -->
+                </div>
+            </div>
+
+
+            <div class="from-group row">
+                <label for="nota" class="col-sm-2 col-form-label">Nota</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="nota" [(ngModel)]="estudiante.nota"> <!-- ngModel para mapear atributos de estudiante -->
+                </div>
+            </div>
+
+            <button class="btn btn-success" role ="button" (click)='create()' *ngIf="!estudiante.id else elseBlock">Registrar</button>  <!-- Boton para crear y registrar estudiante -->
+
+            <ng-template #elseBlock>
+            <button class="btn btn-success" role ="button" (click)='update()'>Actualizar</button>   <!-- Boton para actualizar estudiante -->
+            </ng-template>
+
+        </form>
+    </div>
+</div>
